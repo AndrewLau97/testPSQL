@@ -1,11 +1,13 @@
 {
   "name": "testpsql",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "listen.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "setup-dbs": "psql -f test.sql",
-    "seed": "PGDATABASE=test_data node run-seed.js"
+    "seed": "PGDATABASE=test_data node run-seed.js",
+    "start": "node listen.js",
+    "seed-prod": "NODE_ENV=production npm run seed"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +15,8 @@
   "description": "",
   "dependencies": {
     "@supabase/supabase-js": "^2.47.12",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
     "pg": "^8.13.1",
     "pg-format": "^1.0.4"
   },
