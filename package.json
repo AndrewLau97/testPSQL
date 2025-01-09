@@ -5,7 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "setup-dbs": "psql -f test.sql",
-    "seed": "PGDATABASE=test_data node run-seed.js",
+    "seed": "node run-seed.js",
     "start": "node listen.js",
     "seed-prod": "NODE_ENV=production npm run seed"
   },
