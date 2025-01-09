@@ -1,7 +1,7 @@
 const db = require("./connection");
 const format = require("pg-format");
 
-const seed = () => {
+const seed = ({usersData, petsData, tasksData}) => {
   return db.query("DROP TABLE IF EXISTS users_Pets;")
   .then(() => {
     return db.query("DROP TABLE IF EXISTS users;");
@@ -19,7 +19,8 @@ const seed = () => {
         username VARCHAR(40) UNIQUE NOT NULL,
         first_name VARCHAR(40) NOT NULL,
         last_name VARCHAR(40) NOT NULL,
-        avatar_url VARCHAR
+        avatar_url VARCHAR,
+        created_at TIMESTAMP DEFAULT NOW()
         );
         `)
   })
@@ -48,6 +49,12 @@ const seed = () => {
         pet_id INT REFERENCES pets(pet_id) ON DELETE CASCADE NOT NULL
         );
         `)
+  })
+  .then(()=>{
+    const insertUsersQueryStr=format(`INSERT INTO users(username, first_name, last_name, avatar_url) VALUES %L`,
+        usersData.map(({username, first_name, last_name, avatar_url})=>[username, first_name, last_name,avatar_url])
+    );
+    return db.query(insertUsersQueryStr)
   })
 };
 

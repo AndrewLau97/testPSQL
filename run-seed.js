@@ -1,4 +1,10 @@
+const testData=require('./data/index')
 const seed = require("./seed");
 const db = require("./connection");
 
-seed().then(() => db.end());
+
+const runSeed=()=>{
+    return seed(testData).then(() => db.end());
+}
+
+runSeed()
