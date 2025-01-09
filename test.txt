@@ -1,0 +1,15 @@
+SELECT users.username, pets.pet_name FROM users
+JOIN users_pets
+ON users.user_id=users_pets.user_id
+JOIN pets
+ON users_pets.pet_id=pets.pet_id;
+
+
+SELECT users.username, pets.pet_name, tasks.task_name FROM users
+JOIN users_pets
+ON users.user_id=users_pets.user_id
+JOIN pets
+ON users_pets.pet_id=pets.pet_id
+JOIN tasks
+ON pets.pet_id=tasks.pet_id;
+
