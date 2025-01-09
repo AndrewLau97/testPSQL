@@ -36,7 +36,7 @@ const seed = () => {
     return db.query(`
         CREATE TABLE tasks (
         task_id SERIAL PRIMARY KEY,
-        pet_id INT REFERENCES pets(pet_id) ON DELETE CASCADE
+        pet_id INT REFERENCES pets(pet_id) ON DELETE CASCADE NOT NULL
         );
         `)
   })
