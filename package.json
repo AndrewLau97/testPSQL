@@ -15,10 +15,13 @@
   "description": "",
   "dependencies": {
     "@supabase/supabase-js": "^2.47.12",
+    "@types/node": "^22.10.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "pg": "^8.13.1",
-    "pg-format": "^1.0.4"
+    "pg-format": "^1.0.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
   },
   "devDependencies": {
     "supabase": "^2.2.1"
